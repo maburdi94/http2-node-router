@@ -1,6 +1,6 @@
 {
   "name": "http2-node-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,5 +9,9 @@
   "author": "Michael Burdi",
   "license": "ISC",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "registry":"https://registry.npmjs.org/"
+  },
+  "repository": "https://github.com/maburdi94/http2-node-router"
 }
