@@ -48,17 +48,31 @@ router.use((request, response, next) => {
 router.use('/showcase', require('./routes/showcase'));
 router.use('/blog', require('./routes/blog'));
 
+
+// Handle GET
+router.get('/inquiry/:id?', (request, response) => {
+    let name = request.query.get('name');  // query is a URLSearchParams object
+    let id = request.params?.['id'];       // params is a regular object
+    
+    if (id) response.write(`Got id: ${id}\n`);
+    
+    response.end(`We got your data, ${name}!`);
+});
+
+
 // Handle POST
-router.post('/', async (request, response) => {
+router.post('/action', async (request, response) => {
     let data = await request.body;  // Get POST data easy
     response.end("We got your data!");
 });
+
 
 // Default page
 router.get('/', (request, response) => {
     // Shortcut to send static file
     response.sendFile(`${__dirname}/public/index.html`);
 });
+
 
 // Catch all GET
 router.get('', (request, response) => {
