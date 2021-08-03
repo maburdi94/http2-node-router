@@ -50,6 +50,7 @@ router.use('/blog', require('./routes/blog'));
 
 // Default page
 router.get('/', (request, response) => {
+    // Shortcut to send static file
     response.sendFile(`${__dirname}/public/index.html`);
 });
 
