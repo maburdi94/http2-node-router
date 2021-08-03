@@ -1,5 +1,6 @@
 # node-router
-A pure Node replacement for Express
+- A zero-dependency replacement for Express.
+- Works with HTTP/2 out-of-the-box
 
 
 # Example
@@ -47,6 +48,11 @@ router.use((request, response, next) => {
 router.use('/showcase', require('./routes/showcase'));
 router.use('/blog', require('./routes/blog'));
 
+// Handle POST
+router.post('/', async (request, response) => {
+    let data = await request.body;  // Get POST data easy
+    response.end("We got your data!");
+});
 
 // Default page
 router.get('/', (request, response) => {
